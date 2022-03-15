@@ -1,0 +1,29 @@
+- hosts: localhost
+  pre_tasks:
+    - name: Update apt
+      become: true
+      apt:
+        force_apt_get: true
+        update_cache: true
+        state: present
+  tasks:
+    - name: Install system packages
+      become: true
+      apt:
+        name:
+          - asciinema
+          - curl
+          - entr
+          - firefox
+          - fish
+          - fzf
+          - gimp
+          - jq
+          - kazam
+          - moreutils
+          - ncdu
+          - python3-pip
+          - sqlite3
+          - tree
+          - unzip
+          - zip
