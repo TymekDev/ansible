@@ -43,10 +43,4 @@
           - Commitizen
           - radian
         extra_args: --user
-    - name: Install Go
-      become: true
-      unarchive:
-        src: "https://go.dev/dl/{{ lookup('url', 'https://go.dev/VERSION?m=text', split_lines=False) }}.linux-amd64.tar.gz"
-        remote_src: true
-        dest: /usr/local
-      tags: go
+    - include_tasks: "tasks/go.yml"
