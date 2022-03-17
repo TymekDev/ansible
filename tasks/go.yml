@@ -11,7 +11,7 @@
     dest: /usr/local
 
 - name: Install packages
-  shell: go install github.com/{{ item }}@latest
+  shell: /usr/local/go/bin/go install github.com/{{ item }}@latest
   loop:
     - claudiodangelis/qrcp
     - gohugoio/hugo
