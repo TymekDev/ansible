@@ -11,3 +11,5 @@
       include_tasks: "tasks/core.yml"
     - name: Go
     - include_tasks: "tasks/go.yml"
+    - name: R
+      include_tasks: "tasks/r.yml"

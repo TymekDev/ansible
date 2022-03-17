@@ -1,0 +1,28 @@
+- name: Install dependencies
+  become: true
+  apt:
+    pkg:
+      - dirmngr
+      - software-properties-common
+    install_recommends: false
+
+- name: Add GPG key
+  become: true
+  apt_key:
+    url: https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc
+
+- name: Add apt repository
+  become: true
+  apt_repository:
+    repo: deb https://cloud.r-project.org/bin/linux/ubuntu {{ ansible_distribution_release }}-cran40/
+
+- name: Install R
+  become: true
+  apt:
+    pkg: r-base
+    install_recommends: false
+
+- name: Install radian
+  become: true
+  pip:
+    name: radian

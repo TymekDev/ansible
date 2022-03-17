@@ -32,6 +32,4 @@
 - name: Install python3 packages
   become: true
   pip:
-    name:
-      - Commitizen
-      - radian
+    name: Commitizen
