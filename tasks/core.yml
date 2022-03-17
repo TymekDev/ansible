@@ -30,8 +30,8 @@
       - ripgrep
 
 - name: Install python3 packages
+  become: true
   pip:
     name:
       - Commitizen
       - radian
-    extra_args: --user
