@@ -1,0 +1,11 @@
+- name: 'BurntSushi/ripgrep: retrieve latest release'
+  community.general.github_release:
+    user: BurntSushi
+    repo: ripgrep
+    action: latest_release
+  register: release
+
+- name: 'BurntSushi/ripgrep: install'
+  become: true
+  apt:
+    deb: https://github.com/BurntSushi/ripgrep/releases/download/{{ release.tag }}/ripgrep_{{ release.tag }}_amd64.deb

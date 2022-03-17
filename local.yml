@@ -9,6 +9,13 @@
   tasks:
     - name: Core
       include_tasks: "tasks/core.yml"
+    - name: Install packages from GitHub
+      include_tasks: "tasks/github/{{ item }}.yml"
+      loop:
+        - bat
+        - delta
+        - fd
+        - ripgrep
     - name: Go
       include_tasks: "tasks/go.yml"
     - name: R

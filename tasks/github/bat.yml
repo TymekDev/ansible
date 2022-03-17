@@ -1,0 +1,11 @@
+- name: 'sharkdp/bat: retrieve latest release'
+  community.general.github_release:
+    user: sharkdp
+    repo: bat
+    action: latest_release
+  register: release
+
+- name: 'sharkdp/bat: install'
+  become: true
+  apt:
+    deb: https://github.com/sharkdp/bat/releases/download/{{ release.tag }}/bat_{{ release.tag[1:] }}_amd64.deb
