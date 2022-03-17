@@ -7,5 +7,7 @@
         update_cache: true
         state: present
   tasks:
-    - include_tasks: "tasks/core.yml"
+    - name: Core
+      include_tasks: "tasks/core.yml"
+    - name: Go
     - include_tasks: "tasks/go.yml"

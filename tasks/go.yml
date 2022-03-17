@@ -1,16 +1,16 @@
-- name: Purge Go
+- name: Purge previous installation
   shell: rm -rf /usr/local/go
   args:
     removes: "/usr/local/go"
 
-- name: Install Go
+- name: Install newest release
   become: true
   unarchive:
     src: "https://go.dev/dl/{{ lookup('url', 'https://go.dev/VERSION?m=text', split_lines=False) }}.linux-amd64.tar.gz"
     remote_src: true
     dest: /usr/local
 
-- name: Install Go Packages
+- name: Install packages
   shell: go install github.com/{{ item }}@latest
   loop:
     - claudiodangelis/qrcp
