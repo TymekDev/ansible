@@ -16,14 +16,19 @@
           - entr
           - firefox
           - fish
+          - flameshot
           - fzf
           - gimp
+          - git
           - jq
           - kazam
           - moreutils
+          - mpv
           - ncdu
           - python3-pip
           - sqlite3
+          - stow
           - tree
           - unzip
+          - wget
           - zip
