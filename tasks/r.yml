@@ -3,6 +3,7 @@
   apt:
     pkg:
       - dirmngr
+      - gpg-agent
       - software-properties-common
     install_recommends: false
 
