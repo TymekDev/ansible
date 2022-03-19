@@ -3,6 +3,7 @@
   apt:
     name:
       - asciinema
+      - blueman
       - curl
       - entr
       - firefox
@@ -13,9 +14,11 @@
       - git
       - jq
       - kazam
+      - kitty
       - moreutils
       - mpv
       - ncdu
+      - pavucontrol
       - python3-pip
       - sqlite3
       - stow
