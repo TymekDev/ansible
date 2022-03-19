@@ -27,3 +27,16 @@
   become: true
   pip:
     name: radian
+
+- name: Install extras and packages dependencies
+  become: true
+  apt:
+    pkg:
+      - libcurl4-openssl-dev
+      - libssl-dev
+      - libxml2-dev
+      - pandoc
+      - texlive-full
+
+- name: Install packages
+  shell: Rscript -e 'install.packages(c("data.table", "devtools", "renv", "shiny", "tidyverse"), repos = "https://cloud.r-project.org/")'
