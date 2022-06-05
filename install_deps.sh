@@ -25,3 +25,4 @@ esac
 sudo apt install -y -qq software-properties-common
 sudo add-apt-repository -yu "$repo"
 sudo apt install -y -qq ansible
+ansible-galaxy collection install community.general

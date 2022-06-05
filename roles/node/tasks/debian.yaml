@@ -1,0 +1,11 @@
+- name: "dependencies"
+  become: true
+  shell: curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+- name: "install"
+  become: true
+  ansible.builtin.apt:
+    name: nodejs
+    autoclean: true
+    autoremove: true
+    update_cache: true

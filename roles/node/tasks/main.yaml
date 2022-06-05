@@ -1,0 +1,7 @@
+- import_tasks: debian.yaml
+  when: ansible_os_family == "Debian"
+
+- name: "vscode-langservers-extracted"
+  community.general.npm:
+    name: vscode-langservers-extracted
+    global: yes

@@ -6,3 +6,6 @@
   roles:
     - name: neovim
       tags: neovim
+
+    - name: node
+      tags: node
