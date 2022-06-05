@@ -18,3 +18,7 @@ sudo add-apt-repository -yu 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu
 sudo apt install -y ansible
 ```
 [Reference](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-debian)
+
+
+## Credits
+Influenced by [shmileee/dotfiles](https://github.com/shmileee/dotfiles).
