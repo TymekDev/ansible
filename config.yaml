@@ -1,0 +1,2 @@
+build_dirs:
+  neovim: "{{ ansible_user_dir }}/.builds/neovim"

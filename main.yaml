@@ -1,0 +1,8 @@
+- hosts: 127.0.0.1
+  strategy: linear
+  connection: local
+  vars_files:
+    - config.yaml
+  roles:
+    - name: neovim
+      tags: neovim

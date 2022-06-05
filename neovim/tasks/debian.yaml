@@ -1,0 +1,50 @@
+- name: "dependencies"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - ninja-build
+      - gettext
+      - libtool
+      - libtool-bin
+      - autoconf
+      - automake
+      - cmake
+      - g++
+      - pkg-config
+      - unzip
+      - curl
+      - doxygen
+    autoclean: true
+    autoremove: true
+    update_cache: true
+
+- name: "clone"
+  ansible.builtin.git:
+    clone: true
+    depth: 1
+    single_branch: true
+    dest: "{{ build_dirs.neovim }}"
+    force: true
+    repo: https://github.com/neovim/neovim.git
+    update: true
+    version: master
+  register: clone
+
+- name: "build"
+  make:
+    chdir: "{{ build_dirs.neovim }}"
+    params:
+      CMAKE_BUILD_TYPE: RelWithDebInfo
+  when: clone.changed
+
+- name: "install"
+  become: true
+  make:
+    chdir: "{{ build_dirs.neovim }}"
+    target: install
+  when: clone.changed
+
+- name: "remove build folder"
+  ansible.builtin.file:
+    path: "{{ build_dirs.neovim }}/build"
+    state: absent
