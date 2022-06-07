@@ -14,7 +14,7 @@ os_codename=$(lsb_release --codename --short)
 case "$os_codename" in
   "bullseye")
     # Reference: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-debian
-    repo='deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main'
+    repo="deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main"
   ;;
   *)
     echo "Unsupported OS codename ($os_codename)"
