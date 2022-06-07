@@ -16,6 +16,9 @@ case "$os_codename" in
     # Reference: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-debian
     repo="deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main"
   ;;
+  "focal")
+    repo="ppa:ansible/ansible"
+  ;;
   *)
     echo "Unsupported OS codename ($os_codename)"
     exit 1
