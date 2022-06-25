@@ -5,6 +5,12 @@
     filename: "shells:fish:release:3"
   when: ansible_distribution == "Debian"
 
+- name: "add repository"
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "ppa:fish-shell/release-3"
+  when: ansible_distribution == "Ubuntu"
+
 - name: "install"
   become: true
   ansible.builtin.apt:
