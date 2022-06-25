@@ -1,11 +1,11 @@
-- name: "add repository"
+- name: "add repository (Debian)"
   become: true
   ansible.builtin.apt_repository:
     repo: "deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /"
     filename: "shells:fish:release:3"
   when: ansible_distribution == "Debian"
 
-- name: "add repository"
+- name: "add repository (Ubuntu)"
   become: true
   ansible.builtin.apt_repository:
     repo: "ppa:fish-shell/release-3"
