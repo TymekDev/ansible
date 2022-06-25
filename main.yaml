@@ -4,6 +4,9 @@
   vars_files:
     - config.yaml
   roles:
+    - name: fish
+      tags: fish
+
     - name: neovim
       tags: neovim
 

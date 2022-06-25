@@ -1,0 +1,14 @@
+- name: "add repository"
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /"
+    filename: "shells:fish:release:3"
+  when: ansible_distribution == "Debian"
+
+- name: "install"
+  become: true
+  ansible.builtin.apt:
+    name: fish
+    autoclean: true
+    autoremove: true
+    update_cache: true
