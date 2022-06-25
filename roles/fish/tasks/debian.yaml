@@ -18,3 +18,6 @@
     autoclean: true
     autoremove: true
     update_cache: true
+
+- name: "chsh"
+  ansible.builtin.shell: chsh -s `which fish`
