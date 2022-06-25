@@ -1,0 +1,8 @@
+- name: "install"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - fzf
+    autoclean: true
+    autoremove: true
+    update_cache: true
