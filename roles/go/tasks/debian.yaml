@@ -1,0 +1,22 @@
+- name: "remove previous version"
+  become: true
+  ansible.builtin.file:
+    path: "/usr/local/go"
+    force: true
+    state: absent
+
+- name: "install (amd64)"
+  become: true
+  ansible.builtin.unarchive:
+    src: "https://go.dev/dl/{{ lookup('url', 'https://go.dev/VERSION?m=text', split_lines=False) }}.linux-amd64.tar.gz"
+    remote_src: true
+    dest: /usr/local
+  when: ansible_architecture == "x86_64"
+
+- name: "install (arm64)"
+  become: true
+  ansible.builtin.unarchive:
+    src: "https://go.dev/dl/{{ lookup('url', 'https://go.dev/VERSION?m=text', split_lines=False) }}.linux-arm64.tar.gz"
+    remote_src: true
+    dest: /usr/local
+  when: ansible_architecture == "aarch64"
