@@ -1,2 +1,3 @@
 build_dirs:
   neovim: "{{ ansible_user_dir }}/.builds/neovim"
+  tmux: "{{ ansible_user_dir }}/.builds/tmux"

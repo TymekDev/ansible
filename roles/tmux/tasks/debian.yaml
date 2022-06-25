@@ -1,0 +1,50 @@
+- name: "dependencies"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - libevent-dev
+      - ncurses-dev
+      - build-essential
+      - bison
+      - pkg-config
+      - autoconf
+      - automake
+    autoclean: true
+    autoremove: true
+    update_cache: true
+
+- name: "clone"
+  ansible.builtin.git:
+    clone: true
+    depth: 1
+    single_branch: true
+    dest: "{{ build_dirs.tmux }}"
+    force: true
+    repo: https://github.com/tmux/tmux.git
+    update: true
+    version: master
+  register: clone
+
+- name: "autogen"
+  ansible.builtin.shell:
+    chdir: "{{ build_dirs.tmux }}"
+    cmd: sh autogen.sh
+  when: clone.changed
+
+- name: "configure"
+  ansible.builtin.shell:
+    chdir: "{{ build_dirs.tmux }}"
+    cmd: ./configure
+  when: clone.changed
+
+- name: "build"
+  community.general.make:
+    chdir: "{{ build_dirs.tmux }}"
+  when: clone.changed
+
+- name: "install"
+  become: true
+  community.general.make:
+    chdir: "{{ build_dirs.tmux }}"
+    target: install
+  when: clone.changed

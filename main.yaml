@@ -13,5 +13,8 @@
     - name: node
       tags: node
 
+    - name: tmux
+      tags: tmux
+
     - name: utils
       tags: utils
