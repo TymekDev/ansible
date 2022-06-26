@@ -1,2 +1,5 @@
 - ansible.builtin.import_tasks: debian.yaml
   when: ansible_os_family == "Debian"
+
+- name: "gopls"
+  ansible.builtin.shell: go install golang.org/x/tools/gopls@latest
