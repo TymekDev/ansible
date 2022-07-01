@@ -28,4 +28,5 @@ esac
 sudo apt install -y -qq software-properties-common
 sudo add-apt-repository -yu "$repo"
 sudo apt install -y -qq ansible
+pip3 install github3.py # TODO: this could be handled by ansible
 ansible-galaxy collection install community.general
