@@ -2,7 +2,7 @@
   when: ansible_os_family == "Debian"
 
 - name: "gopls"
-  ansible.builtin.shell: go install golang.org/x/tools/gopls@latest
+  ansible.builtin.shell: /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
 
 - name: "goimports"
-  ansible.builtin.shell: go install golang.org/x/tools/cmd/goimports@latest
+  ansible.builtin.shell: /usr/local/go/bin/go install golang.org/x/tools/cmd/goimports@latest
