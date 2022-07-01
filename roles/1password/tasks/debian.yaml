@@ -10,6 +10,13 @@
     filename: "1password"
   when: ansible_architecture == "x86_64"
 
+- name: "add repository (arm64)"
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=arm64] https://downloads.1password.com/linux/debian/arm64 stable main"
+    filename: "1password"
+  when: ansible_architecture == "aarch64"
+
 - name: "add debsig-verify policy"
   become: true
   ansible.builtin.shell: |
@@ -18,7 +25,7 @@
     sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 
-- name: "install"
+- name: "install app"
   become: true
   ansible.builtin.apt:
     name: 1password
@@ -26,3 +33,11 @@
     autoremove: true
     update_cache: true
   when: ansible_architecture == "x86_64"
+
+- name: "install CLI"
+  become: true
+  ansible.builtin.apt:
+    name: 1password-cli
+    autoclean: true
+    autoremove: true
+    update_cache: true
