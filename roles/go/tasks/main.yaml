@@ -3,3 +3,6 @@
 
 - name: "gopls"
   ansible.builtin.shell: go install golang.org/x/tools/gopls@latest
+
+- name: "goimports"
+  ansible.builtin.shell: go install golang.org/x/tools/cmd/goimports@latest
