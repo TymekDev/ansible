@@ -4,6 +4,9 @@
   vars_files:
     - config.yaml
   roles:
+    - name: 1password
+      tags: 1password
+
     - name: fish
       tags: fish
 
