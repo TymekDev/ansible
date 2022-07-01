@@ -4,4 +4,4 @@
 - name: "vscode-langservers-extracted"
   community.general.npm:
     name: vscode-langservers-extracted
-    global: yes
+    global: true
