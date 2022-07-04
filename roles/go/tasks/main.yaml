@@ -6,3 +6,6 @@
 
 - name: "goimports"
   ansible.builtin.shell: /usr/local/go/bin/go install golang.org/x/tools/cmd/goimports@latest
+
+- name: "hugo"
+  ansible.builtin.shell: /usr/local/go/bin/go install github.com/gohugoio/hugo@latest
