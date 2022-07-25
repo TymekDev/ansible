@@ -1,0 +1,7 @@
+- name: "install"
+  become: true
+  ansible.builtin.apt:
+    name: python3
+    autoclean: true
+    autoremove: true
+    update_cache: true

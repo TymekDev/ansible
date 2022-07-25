@@ -19,6 +19,9 @@
     - name: node
       tags: node
 
+    - name: python
+      tags: python
+
     - name: tmux
       tags: tmux
 
